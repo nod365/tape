@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>background</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+		<style>
+			.controls {
+				position: fixed;
+				top: 25px;
+				right: 25px;
+				display: flex;
+			}
+		
+			.iconSw {
+				background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAAeCAYAAADnydqVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGMmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDMgMTE2LmRkYzdiYzQsIDIwMjEvMDgvMTctMTM6MTg6MzcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMS4yIChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjQtMTEtMDdUMTY6NTE6NTYrMDM6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDI0LTExLTA3VDE2OjUyOjA0KzAzOjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDI0LTExLTA3VDE2OjUyOjA0KzAzOjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpmM2NlNmZhYy01NDY4LTVlNGUtODk5Ni0zMWU4MjQ0NWI1YWEiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMTgyNjAzNy0zYjgzLTBmNDYtYTQ4Ny0wZjgzMzIwZjI2YmUiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4MTNhNTY5ZC1hMmU3LWNhNDktOTc2ZC0xNTI0ODdiODhmYmIiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjgxM2E1NjlkLWEyZTctY2E0OS05NzZkLTE1MjQ4N2I4OGZiYiIgc3RFdnQ6d2hlbj0iMjAyNC0xMS0wN1QxNjo1MTo1NiswMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjIgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmYzY2U2ZmFjLTU0NjgtNWU0ZS04OTk2LTMxZTgyNDQ1YjVhYSIgc3RFdnQ6d2hlbj0iMjAyNC0xMS0wN1QxNjo1MjowNCswMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjIgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtdftaIAAAD+SURBVGje7ZlRDoMgEAXLoXoKDyU9VE/RQ1FsNEGDTRDYjezMjxE/HuyIKLoQwgPGxSEYwYBgQDAgGBAMCIbbCnbOTfHwTJo+sf9vNDYWrFHoLTPmzEnbS1JyMm6x8dZmFQvWKnTM8EvmmvVjO49HLyVXKvMw3su1vSJYpdDHOzrth0Cxd3Kln1g1mVWCl8JKFvpfP0aS2zK7SHAmcDeDew0+s+aL5mrIbdWHUsE+XXsz17vMJu1cLbkt1n8EM4PPC70WdpYWLJVrcQ02J9jUW7S1R7S57+DcJofEZodWrumdrMyl3jtZKrl3h79JCAYEA4IBwYBgQDAgGMEwDF+a8/fUzROPaQAAAABJRU5ErkJggg==');
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				margin: 3px;
+			}
+			
+			.iconSw:hover {
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+			
+			#BG {
+				background-color: #222;
+				background-size: cover;
+				background-position: center;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				/* transition: background-image .5s ease-in-out */;
+			}
+			
+			div#btBack {
+				background-position-x: -60px;
+			}
+
+			div#btNext {
+				background-position-x: -90px;
+			}
+			
+			.btUnlocked {
+				background-position-x: -30px;
+				border: 1px solid rgba(0, 0, 0, 0.2);
+			}
+			
+			#btLock {
+				position: relative;
+			}
+			
+			.z5cwj4YZcocKBDfOlbFW {
+				position: absolute;
+				border-radius: 50%;
+				width: 30px;
+				height: 30px;
+				left: -1px;
+				top: -1px;
+				animation: qVfJpKex4osmYb0E4NAX linear infinite;
+				border: 1px solid #FFF;
+				display:none;
+			}
+			
+			.btUnlocked .z5cwj4YZcocKBDfOlbFW {
+				display: block;
+			}
+			
+			@keyframes qVfJpKex4osmYb0E4NAX {
+				0% {
+					clip-path: polygon(50% 50%, 50% -50%, 150% 50%, 50% 150%, -50% 50%, 50% -50%);
+					opacity: 0;
+				}
+				
+				5% {
+					opacity: 1;
+				}
+
+				25% {
+					clip-path: polygon(50% 50%, 150% 50%, 150% 50%, 50% 150%, -50% 50%, 50% -50%)
+				}
+
+				50% {
+					clip-path: polygon(50% 50%, 50% 150%, 50% 150%, 50% 150%, -50% 50%, 50% -50%)
+				}
+
+				75% {
+					clip-path: polygon(50% 50%, -50% 50%, -50% 50%, -50% 50%, -50% 50%, 50% -50%)
+				}
+
+				100% {
+					clip-path: polygon(50% 50%, 50% -50%, 50% -50%, 50% -50%, 50% -50%, 50% -50%)
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="BG" style="background-image: url(./GIF/02.gif)"> </div>
+		<div class="controls" >
+			<div class="NA7JTcciAo0VJj5tzPXg"></div>
+			<div id="btBack" class="iconSw"></div>
+			<div id="btLock" class="iconSw btUnlocked">
+				<div class="z5cwj4YZcocKBDfOlbFW" style="animation-duration: 0ms"></div>
+			</div>
+			<div id="btNext" class="iconSw"></div>
+		</div>
+		<script>
+			let Images;
+			let imgMin = 2;
+			let imgMax = 84; 
+			let isLocked = false; // Переменная для блокировки текущих обоев
+			let interval; // Переменная для хранения timeout
+			let index;
+
+			// Функция для генерации массива от 2 до 84
+			function generateArray() {
+				const array = [];
+				for (let i = imgMin; i <= imgMax; i++) {
+					array.push(i);
+				}
+				return array;
+			}
+
+			// Функция для перемешивания массива
+			function shuffleArray(array) {
+				for (let i = array.length - 1; i > 0; i--) {
+					const j = Math.floor(Math.random() * (i + 1));
+					[array[i], array[j]] = [array[j], array[i]]; // Меняем местами элементы
+				}
+				return array;
+			}
+
+			// Возвращает случайное число в диапазоне от 30000 до 90000 (от 30 сек до 1,5 минуты)
+			function getRandomNumber() {
+				return Math.floor(Math.random() * (90000 - 30000 + 1)) + 30000;
+			}
+
+			// Основная функция для вывода с задержкой в 1 секунду
+			function printImages() {
+
+				function setBackgroundById(bgId) {
+					document.getElementById('BG').style.backgroundImage = `url(./GIF/${bgId < 10 ? '0' : ''}${bgId}.gif)`;
+				}
+
+				// Основная функция для вывода с задержкой в 1 секунду
+				function startAutoSlide() {
+					Images = generateArray();
+					Images = shuffleArray(Images); // Перемешиваем массив
+
+					index = 0;
+					function newBackground() {
+						if (!isLocked) {
+							index++;
+							if (index === Images.length) {
+								index = 0; // Если массив закончился, начинаем сначала
+								Images = shuffleArray(Images); // Перемешиваем массив снова
+							}
+
+							console.log(index+ ": "+Images[index]);
+							document.getElementById('BG').style.backgroundImage = ( 'url(./GIF/' + (Images[index]<10?'0':'') + Images[index] +  '.gif\n' )
+							let randomTime = getRandomNumber()
+							
+							
+							let element = document.querySelector('.z5cwj4YZcocKBDfOlbFW');
+							element.style.animationDuration = randomTime+'ms'; 
+							element.classList.remove('z5cwj4YZcocKBDfOlbFW');
+							void element.offsetWidth;
+							element.classList.add('z5cwj4YZcocKBDfOlbFW');
+
+							interval = setTimeout(newBackground, randomTime) // Рандомное время следующей обоины
+						}
+					} 
+
+					// Первый запуск цикла-рекурсии
+					newBackground();
+
+				}
+
+				// Запуск слайдера
+				if (localStorage.getItem('lockedIndex') !== null) {
+					// Если в localStorage есть заблокированные обои, устанавливаем их
+					index = parseInt(localStorage.getItem('lockedIndex'), 10);
+					isLocked = true;
+					setBackgroundById(index)
+					document.getElementById('btLock').classList.remove('btUnlocked');
+				} else {
+					// Если ничего не заблокировано, запускаем автоматический слайдер
+					startAutoSlide();
+
+				}
+
+				// Обработчик кнопки "Заблокировать"
+				document.getElementById('btLock').addEventListener('click', lockUnlock);
+				
+				function lockUnlock() {
+					if (isLocked) {
+						// Если обои уже заблокированы, то разблокируем и начинаем перемешивание
+						localStorage.removeItem('lockedIndex');
+						isLocked = false;
+						index = 0; // Сбрасываем индекс на первый элемент
+						startAutoSlide(); // Возвращаем автоматическое листание
+						document.getElementById('btLock').classList.add('btUnlocked');
+					} else {
+						// Если обои не заблокированы, то блокируем их
+						isLocked = true;
+						console.log("locked: "+index+ ": "+Images[index]);
+						localStorage.setItem('lockedIndex', Images[index]); // Сохраняем текущий индекс в localStorage
+						index = Images[index];
+						clearTimeout(interval); // Останавливаем автоматическое листание
+						document.getElementById('btLock').classList.remove('btUnlocked');
+					}
+				}
+
+				// Обработчик кнопки "Следующее"
+				document.getElementById('btNext').addEventListener('click', function () {
+					if (!isLocked) {
+						lockUnlock()
+					}
+					index++;
+					if (index > imgMax) {
+						index = imgMin; // Зацикливаем на первом изображении
+					}
+					setBackgroundById(index)
+					localStorage.setItem('lockedIndex', index); // Сохраняем в localStorage
+				});
+
+				// Обработчик кнопки "Предыдущее"
+				document.getElementById('btBack').addEventListener('click', function () {
+					if (!isLocked) {
+						lockUnlock()
+					}
+					index--;
+					if (index < imgMin) {
+						index = imgMax; // Зацикливаем на последнем изображении
+					}
+					setBackgroundById(index)
+					localStorage.setItem('lockedIndex', index); // Сохраняем в localStorage
+				});
+			}
+
+			// Запуск функции при загрузке страницы
+			window.onload = function () { 
+				printImages();
+			};
+		</script>
+	</body>
+</html>
